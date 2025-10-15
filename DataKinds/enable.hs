@@ -27,8 +27,17 @@ ghci> :t Maybe
 ghci> :k Maybe
 Maybe :: * -> *
 -}
--- * is just the forall.a int type level, so Maybe is a type constructor that take a type and return a type
+-- * is just the forall.a int type level, 
+-- in some language, * is Type, of course you can replace it with Type in Haskell
+-- so Maybe is a type constructor that take a type and return a type
+-- and Maybe a is a Type
+-- or we can say the type of Maybe a is Type
 -- but what if we lift the value into type?
 -- that's what DataKinds do
 s :: Example A
 s = MkExample
+-- here A is not a value, it's a type
+-- (in fact the 'A, ghc just know what you want)
+k :: Example 'A
+k = MkExample
+-- in contrast to normal situ, you can't build a type Maybe True
